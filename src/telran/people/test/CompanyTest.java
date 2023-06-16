@@ -39,7 +39,13 @@ void setUp() {
 }
 	@Test
 	void testGetAllEmployees() {
-		assertArrayEquals(employees, company.getAllEmployees());
+		Employee[] expected = {
+				new Employee(ID1, "name1", BIRTH_YEAR1, DEPARTMENT1, SALARY1),	
+				new Employee(ID2, "name2", BIRTH_YEAR2, DEPARTMENT1, SALARY2),
+				new Employee(ID3, "name3", BIRTH_YEAR3, DEPARTMENT2, SALARY3),
+				new Employee(ID4, "name4", BIRTH_YEAR4, DEPARTMENT2, SALARY4)
+		};
+		assertArrayEquals(expected, company.getAllEmployees());
 	}
 
 	@Test

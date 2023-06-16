@@ -50,6 +50,38 @@ void bubbleSortComparatorTest() {
 	assertArrayEquals(expected, array);
 	
 }
+@Test
+void bubbleSortComparatorTestLambda() {
+	Integer [] expected = {10, 100, 200, 5, -5};
+	Integer [] array = {10, 5, -5, 100, 200};
+	//bubbleSort(array, (a, b) -> compare(a, b)); /*lambda expression */
+//	bubbleSort(array, (o1, o2) -> {
+//		int res = 1;
+//		if (o1 % 2 == 0 && o2 % 2 != 0) {
+//			res = -1;
+//		} else if(o1 % 2 != 0 && o2 % 2 != 0) {
+//			res = o2 - o1;
+//		} else if(o1 % 2 == 0 && o2 % 2 == 0) {
+//			res = o1 - o2;
+//		}
+//		return res;
+//	}); /* lambda closure */
+	bubbleSort(array, ArraysTest::compare); /*Method reference */
+	System.out.println(Arrays.toString(array));
+	assertArrayEquals(expected, array);
+	
+}
+static private int compare(Integer o1, Integer o2) {
+	int res = 1;
+	if (o1 % 2 == 0 && o2 % 2 != 0) {
+		res = -1;
+	} else if(o1 % 2 != 0 && o2 % 2 != 0) {
+		res = o2 - o1;
+	} else if(o1 % 2 == 0 && o2 % 2 == 0) {
+		res = o1 - o2;
+	}
+	return res;
+}
 }
 
 
