@@ -31,6 +31,9 @@ class CalculatorTest {
 @Test
 void calculateTest() {
 	assertEquals(20, Calculator.calculate(new CalcData(40, 20, '-')));
+	assertEquals(0.5, Calculator.calculate(new CalcData(1, 2, '/')));
+	assertEquals(1, Calculator.calculate(new CalcData(0.5, 2, '*')));
+	assertEquals(0.74, Calculator.calculate(new CalcData(0.5, 0.24, '+')));
 }
 }
 
