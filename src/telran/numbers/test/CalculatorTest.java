@@ -34,6 +34,8 @@ void calculateTest() {
 	assertEquals(0.5, Calculator.calculate(new CalcData(1, 2, '/')));
 	assertEquals(1, Calculator.calculate(new CalcData(0.5, 2, '*')));
 	assertEquals(0.74, Calculator.calculate(new CalcData(0.5, 0.24, '+')));
+	assertThrowsExactly(UnsupportedOperationException.class, () -> Calculator.calculate(new CalcData(0.5, 0.24, '?')));
+	assertThrowsExactly(ArithmeticException.class, () -> Calculator.calculate(new CalcData(10, 0, '/')));
 }
 }
 
