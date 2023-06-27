@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 public class RangePredicate implements Iterable<Integer>{
 	int minInclusive;
 	int maxExclusive;
-	Predicate<Integer> predicate;
+	Predicate<Integer> predicate = e -> true;
 	public RangePredicate(int minInclusive, int maxExclusive) {
 		if(minInclusive >= maxExclusive) {
 			throw new IllegalArgumentException("min must be less than max");
@@ -28,6 +28,10 @@ public class RangePredicate implements Iterable<Integer>{
 		for(int num: this) {
 			res[index++] = num;
 		}
+//		Iterator<Integer> it = iterator();
+//		while(it.hasNext()) {
+//			res[index++] = it.next();
+//		}
 		return Arrays.copyOf(res, index);
 	}
 	
@@ -35,11 +39,7 @@ public class RangePredicate implements Iterable<Integer>{
 		int current;
 		Predicate<Integer> innerPredicate;
 		RangePredicateIterator(Predicate<Integer> predicate) {
-			
 			innerPredicate = predicate;
-			if (innerPredicate == null) {
-				innerPredicate = e -> true;
-			}
 			current = innerPredicate.test(minInclusive) ? minInclusive : getCurrent(minInclusive);
 		}
 		@Override
