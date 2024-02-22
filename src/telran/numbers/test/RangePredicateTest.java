@@ -23,6 +23,7 @@ class RangePredicateTest {
 	@Test
 	void fullRangeTest() {
 		int[] expected = {1, 2, 3, 4};
+		System.out.println(range.toArray());
 		assertArrayEquals(expected, range.toArray());
 	}
 	@Test
