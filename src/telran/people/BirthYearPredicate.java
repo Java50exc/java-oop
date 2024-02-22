@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 public class BirthYearPredicate implements Predicate<Employee> {
 
 int yearFrom;
+//
+
 int yearTo;
 public BirthYearPredicate(int yearFrom, int yearTo) {
 	super();
